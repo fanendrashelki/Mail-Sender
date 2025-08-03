@@ -9,6 +9,9 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/mails", mailRoutes);
+app.get("/", (req, res) => {
+  res.json({ message: "server is running" });
+});
 
 sequelize.sync().then(() => {
   app.listen(5000, () =>
